@@ -1,4 +1,6 @@
 import {Admin, Consumer, Kafka, logLevel} from 'kafkajs';
+import {IPAddress} from '../../../post-producer/src/config/kafka.config';
+
 class KafkaConfig {
     private kafka: Kafka;
     private consumer: Consumer;
@@ -6,7 +8,7 @@ class KafkaConfig {
     // broker is url where our Kafka Runs
     
     constructor() {
-        this.brokers = process.env.KAFKA_BROKER || '192.168.196.58:9092';
+        this.brokers = process.env.KAFKA_BROKER || IPAddress;
         this.kafka = new Kafka({
             clientId: 'post-producer',
             brokers: [this.brokers],

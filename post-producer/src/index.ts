@@ -12,4 +12,8 @@ app.get("/", (c) => {
 
 app.route('/', postRoutes);
 
-export default app;
+// export default app;
+export default {
+  port: 2001,
+  fetch: app.fetch,
+};

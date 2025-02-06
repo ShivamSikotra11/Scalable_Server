@@ -1,4 +1,5 @@
 import {Admin, Kafka, logLevel, Producer} from 'kafkajs';
+export const IPAddress = '192.168.165.151:9092'
 // Kafka is a distributed event streaming platform capable of handling trillions of events a day.
 
 class KafkaConfig {
@@ -9,7 +10,7 @@ class KafkaConfig {
     // broker is url where our Kafka Runs
     
     constructor() {
-        this.brokers = process.env.KAFKA_BROKER || '192.168.196.58:9092';
+        this.brokers = process.env.KAFKA_BROKER || IPAddress;
         this.kafka = new Kafka({
             clientId: 'post-producer',
             brokers: [this.brokers],
